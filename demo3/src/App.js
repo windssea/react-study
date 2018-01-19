@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 import AddTodo from './compents/AddTodo';
 import Footer from './compents/Footer';

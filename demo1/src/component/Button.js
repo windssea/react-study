@@ -10,8 +10,7 @@ class Button extends Component {
         super(props);
         this.state = {
             label:  props.label?props.label:"按钮",
-            type: props.type,
-            // doSome:props.doSome
+            type: props.type 
         };
         this.onClick=this.onClick.bind(this);
     }

@@ -5,8 +5,13 @@ import App from './App';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import todoApp from './reducer/reducers';
+import registerServiceWorker from './registerServiceWorker';
+// 安装redux-devtools-extension的可视化工具。
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-let store = createStore(todoApp);
+
+let store = createStore(todoApp,composeWithDevTools());
 
 ReactDOM.render(
     <Provider store={store}><App/></Provider>, document.getElementById('root'));
+    registerServiceWorker();
