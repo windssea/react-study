@@ -6,30 +6,30 @@ export default  function* rootSaga() {
         takeLatest('INCREMENT2', registerUserAsync),
         takeLatest('DECREMENT2', loginUserAsync)
       ];
-    // let data = {
-    //     name: 'test'
-    // };
-    // try {
-    //     console.log('2222');
-    //     //    const data = yield call(Api.fetchUser, action.payload.url);
-    //     yield put({type: "FETCH_SUCCEEDED", data});
-    // } catch (error) {
-    //     yield put({type: "FETCH_FAILED", error});
-    // }
 }
 
 function* registerUserAsync() {
-    console.log(1111); 
-    setTimeout(()=>{console.log(111122); }, 1000)
-    yield put({type: "INCREMENT"});
+    const data= yield call(getName);
+    yield put({type: "INCREMENT",payload:{staff:data}});
 }
 
 function* loginUserAsync() {
-    console.log(2222);
-    yield put({type: "DECREMENT"});
+    const data= yield call(getName2);
+    yield put({type: "DECREMENT",payload:{staff:data}});
     
 }
 
-// function* watchFetchData() {
-//     yield * takeEvery('FETCH_REQUESTED', rootSaga)
-// }
+function getName2() {
+    return {name:'test2'} ;
+}
+ 
+
+function getName() {
+    console.log('开始请求...');
+    return new Promise(resolve=>{
+        setTimeout(()=>{
+            console.log('请求结束');
+            resolve( {name:'test'});
+        }, 3000)
+    }); 
+}
