@@ -18,4 +18,6 @@ const render = () => ReactDOM.render(
     onIncrement={() => store.dispatch({type: 'INCREMENT2'})}
     onDecrement={() => store.dispatch({type: 'DECREMENT2'})}/>, document.getElementById('root'));
 render();
+
+
 store.subscribe(render);
