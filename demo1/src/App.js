@@ -17,6 +17,26 @@ class HelloComponent2 extends Component {
         name: props.name
     };
   }
+  componentWillReceiveProps(nextProps){
+    console.log("更新判断");
+    debugger
+  }
+  shouldComponentUpdate(nextProps) {
+    console.log("更新判断");
+    debugger
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log("准备更新");
+    debugger
+  }
+
+  componentDidUpdate() {
+    console.log("更新完成");
+    debugger
+  }
+
  render() {
     return <div>Hello {this.state.name}</div>  
   }
